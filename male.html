@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Findr</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- animation css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="sub-container">
+      <img class="logo-img" src="img/logo.svg" alt="Finer's Logo" />
+      <div style="display: flex" class="gender-slect gender-slect2">
+        <img class="gender-img" style="transition: all 0.3s ease" src="img/male.png" alt="" />
+        <div class="form-male">
+          <h2 class="gender-h2">What kind of Women are you into ?</h2>
+          <div class="animate__animated animate__bounceInRight" style="
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    ">
+            <label class="cta-btn question long">
+              <h3 class="gender-h3" style="color: white !important;">Light Skinned</h3>
+              <input type="radio" name="complexion" value="light"
+                style="width: 24px; height: 24px; margin-left: 20px;" />
+            </label>
+            <label class="cta-btn question long">
+              <h3 class="gender-h3" style="color: white !important;">Dark Skinned</h3>
+              <input type="radio" name="complexion" value="dark"
+                style="width: 24px; height: 24px; margin-left: 20px;" />
+            </label>
+            <a href="male2.html"><button class="btn-next">Next</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    localStorage.clear();
+    const data = {};
+
+    const complexionRadios = document.querySelectorAll('input[name="complexion"]');
+
+    // Function to save data to localStorage
+    function saveDataToLocalStorage() {
+      localStorage.setItem('selectedOptions', JSON.stringify(data));
+    }
+
+    // Function to load data from localStorage and update radio buttons
+    function loadDataFromLocalStorage() {
+      const savedData = JSON.parse(localStorage.getItem('selectedOptions'));
+      if (savedData && typeof savedData === 'object') {
+        Object.assign(data, savedData); // Load saved data into the object
+        // Update radio buttons based on saved data
+        for (const radio of complexionRadios) {
+          if (radio.value === data.complexion) {
+            radio.checked = true;
+          }
+        }
+      }
+    }
+
+    // Function to clear the browser cache (localStorage)
+    function clearBrowserCache() {
+      localStorage.clear();
+      alert('Browser cache cleared!');
+    }
+
+    // Add event listeners to the radio buttons
+    for (const radio of complexionRadios) {
+      radio.addEventListener('change', () => {
+        data.complexion = radio.value; // Set the selected complexion in the data object
+        saveDataToLocalStorage(); // Save data when radio buttons change
+      });
+    }
+
+    // Load data from localStorage when the page loads
+    loadDataFromLocalStorage();
+
+    // Set a timer to clear the browser cache after 2 minutes (120,000 milliseconds)
+    setTimeout(clearBrowserCache, 120000);
+
+    // Example usage: Append data to an array and stringify it
+    const dataArray = [];
+    const newData = { complexion: data.complexion };
+    const jsonString = appendDataAndStringify(dataArray, newData);
+    console.log(jsonString); // Output the JSON string
+  </script>
+</body>
+
+</html>

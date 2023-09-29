@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Findr</title>
-  <link rel="stylesheet" href="style1.css" />
+  <link rel="stylesheet" href="style.css" />
   <!-- font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,188 +16,20 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">
-      <img class="logo-img" src="../img/logo.svg" alt="" />
+  <div class="home-container">
+    <div class="sub-container">
+      <img class="logo-img" src="img/logo.svg" alt="">
+      <h2>Welcome to FINDR</h2>
+      <h3>
+        Welcome, Here at FINDR we aim to please. And to do so we would like
+        for you to fill a quick survey to help gather some details about you
+        so we know how to properly match you better IT’S ALL ABOUT YOU
+      </h3>
+      <a href="gender.html"><button class="cta-btn">Let's Begin</button></a>
     </div>
-    <ul class="nav-menu">
-      <li class="nav-links"><a href="#home">Home</a></li>
-      <li class="nav-links"><a href="#about">About</a></li>
-      <li class="nav-links"><a href="#safety">Safety</a></li>
-      <li class="nav-links"><a href="#support">Support</a></li>
-      <li class="nav-links"><a href="#download">Download</a></li>
-    </ul>
-    <div class="hamburger mobile-only">
-      <img src="./assests/hamburger.svg" alt="" />
-    </div>
-    <div class="nav-btn">
-      <a href="./coming.html"><button class="login-btn">Login</button> </a>
-      <a href="./coming.html"><button class="cta-btn">Sign Up</button> </a>
-    </div>
-  </nav>
-  <!-- End of Navbar -->
 
-  <!-- Home Section -->
-  <section id="home">
-    <!-- Mobile Menu -->
-    <ul id="mobile-menu" class="mobile-menu animate__animated animate__bounceInDown d-none">
-      <li class="mobile-links"><a href="#home">Home</a></li>
-      <li class="mobile-links"><a href="#about">About</a></li>
-      <li class="mobile-links"><a href="#safety">Safety</a></li>
-      <li class="mobile-links"><a href="#support">Support</a></li>
-      <li class="mobile-links"><a href="#download">Download</a></li>
-      <hr />
-      <li class="mobile-links">
-        <a href="#support"><button class="login-btn">Login</button></a>
-      </li>
-      <li class="mobile-links">
-        <a href="#download"><button class="cta-btn">Sign Up</button></a>
-      </li>
-    </ul>
-    <!-- End of Mobile Menu -->
-    <div class="gradient-overlay"></div>
-
-    <div class="container">
-      <div class="sub-container d-flex background-white">
-        <img class="mobile-img" src="./assests/mobile.svg" alt="" />
-        <div class="mobile-sec">
-          <img class="mobile-img-logo" src="../img/logo.svg" alt="" />
-          <h2>Mobile App Landing Page</h2>
-          <h3 style="padding: 20px 0">
-            FINDR is a cross platform dating site, aimed<br />
-            at connecting peers on a whole different<br />
-            level.
-          </h3>
-          <div class="btn-container">
-            <a href="coming.html">
-              <div class="mobile-btn">
-                <img src="./assests/appstore.svg" alt="" />
-                <div style="color: white !important">
-                  <span style="font-size: 13px">Download on</span>
-                  <h4 class="mobile-cta-btn">App Store</h4>
-                </div>
-              </div>
-            </a>
-            <a href="coming.html">
-              <button class="mobile-btn">
-                <img src="./assests/playstore.svg" alt="" />
-                <div style="color: white !important">
-                  <span style="font-size: 13px">Download on</span>
-                  <h4 class="mobile-cta-btn">Play Store</h4>
-                </div>
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End of Home Section -->
-
-  <!-- Features Section -->
-  <section id="features">
-    <div>
-      <div class="sub-container">
-        <div style="
-              display: flex;
-              align-items: center !important;
-              justify-content: center;
-              margin-bottom: 100px;
-            ">
-          <h2 class="features-header">
-            What
-            <img src="../img/logo.svg" style="height: 80px" alt="findr's logo" />Offers
-          </h2>
-        </div>
-
-        <div class="featues-menu">
-          <div class="feature-info">
-            <h3 class="feature-img-text">FAST <br />SERVICES</h3>
-            <img class="feature-img" src="./assests/fast.svg" alt="" />
-          </div>
-          <div class="feature-info">
-            <h3 class="feature-img-text">
-              SECURE <br />
-              MATCHES
-            </h3>
-            <img class="feature-img" src="./assests/secure.svg" alt="" />
-          </div>
-          <div class="feature-info">
-            <h3 class="feature-img-text">
-              SAFETY <br />
-              PROTOCOLS
-            </h3>
-            <img class="feature-img" src="./assests/safety.svg" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End of Features Section -->
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="gradient-overlay"></div>
-    <div class="container">
-      <div class="sub-container">
-        <div class="center-div about-flex">
-          <div class="left">
-            <img class="left" src="./assests/kiss.svg" alt="" />
-          </div>
-          <div class="right">
-            <h2>Join our MVP Waitlist today !</h2>
-            <h3>
-              Be a part of our MVP waitlist as we get you<br />
-              latest update on the feature to expect from <br />Findr as well
-              as the new updates
-            </h3>
-            <a href="form.html"><button class="cta-btn large-btn">Start Now</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End of About SEction -->
-
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="footer-container">
-      <div class="main">
-        <img src="../img/logo2.svg" style="height: 80px" alt="findr" />
-        <p class="footer-text">
-          FINDR is a cross platform dating site, aimed at connecting<br />
-          peers on a whole different level.
-        </p>
-        <div class="socials">
-          <img src="./assests/appstore.svg" alt="" />
-          <img src="./assests/playstore.svg" alt="" />
-        </div>
-      </div>
-      <div class="sub-mau-container">
-        <div class="sub-main">
-          <h3 class="sub-menu-header">Link</h3>
-          <p class="footer-text">About</p>
-          <p class="footer-text">Community Forum</p>
-          <p class="footer-text">Contact</p>
-        </div>
-        <div class="sub-main">
-          <h3 class="sub-menu-header">Support</h3>
-          <p class="footer-text">Help & Support</p>
-          <p class="footer-text">Privacy Policy</p>
-          <p class="footer-text">Accessibility</p>
-        </div>
-        <div class="sub-main">
-          <h3 class="sub-menu-header">Contact</h3>
-          <p class="footer-text">Lagos, Nigeria</p>
-          <p class="footer-text">+234 80 123 4567</p>
-          <p class="footer-text">info.findr@gmail.com</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- End of Footer -->
-  <script src="main.js"></script>
+    <!-- <img class="dash-svg" src="img/dash.svg" alt=""> -->
+  </div>
 </body>
 
 </html>

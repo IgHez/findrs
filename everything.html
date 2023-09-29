@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Findr</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- animation css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <img class="logo-img" src="img/logo.svg" alt="Finer's Logo" />
+
+            <div style="display: flex" class="gender-slect gender-slect2">
+                <img class="gender-img" style="transition: all 0.3s ease" src="img/male.png" alt="" />
+                <div class="form-male">
+                    <h2 class="gender-h2">What kind of Women are you into ?</h2>
+                    <div class="animate__animated animate__bounceInRight" style="
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    ">
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;">Light Skinned</h3>
+                            <input type="checkbox" value="light-skinned"
+                                style="width: 24px; height: 24px; margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;">Dark Skinned</h3>
+                            <input type="checkbox" value="dark-skinned"
+                                style="width: 24px; height: 24px; margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Tall</h3>
+                            <input type="checkbox" value="tall" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Medium</h3>
+                            <input type="checkbox" value="medium"
+                                style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Short</h3>
+                            <input type="checkbox" value="short" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <!-- <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Slim</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Built</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Chubby</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question long">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Between 20-30 years</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question long">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Between 30-40 years</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label>
+                        <label class="cta-btn question long">
+                            <h3 class="gender-h3" style="color: white !important;" for="">Between 40-50 years</h3>
+                            <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        </label> -->
+                        <a href="male2.html"><button class="btn-next">Next</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript code for handling checkboxes and data
+        const data = [];
+
+        const lightSkinnedCheckbox = document.querySelector('input[value="light-skinned"]');
+        const darkSkinnedCheckbox = document.querySelector('input[value="dark-skinned"]');
+        const tallCheckbox = document.querySelector('input[value="tall"]');
+        const shortCheckbox = document.querySelector('input[value="short"]');
+        const mediumCheckbox = document.querySelector('input[value="medium"]');
+
+        // Function to save data to localStorage
+        function saveDataToLocalStorage() {
+            localStorage.setItem('selectedOptions', JSON.stringify(data));
+        }
+
+        // Function to load data from localStorage and update checkboxes
+        function loadDataFromLocalStorage() {
+            const savedData = JSON.parse(localStorage.getItem('selectedOptions'));
+            if (savedData && Array.isArray(savedData)) {
+                data.length = 0; // Clear the current data array
+                data.push(...savedData); // Load saved data into the array
+                // Update checkboxes based on saved data
+                lightSkinnedCheckbox.checked = data.includes('light-skinned');
+                darkSkinnedCheckbox.checked = data.includes('dark-skinned');
+                tallCheckbox.checked = data.includes('tall');
+                shortCheckbox.checked = data.includes('short');
+                mediumCheckbox.checked = data.includes('medium');
+            }
+        }
+
+        // Add event listeners to the checkboxes
+        lightSkinnedCheckbox.addEventListener('change', () => {
+            if (lightSkinnedCheckbox.checked) {
+                data.push('light-skinned');
+            } else {
+                const index = data.indexOf('light-skinned');
+                if (index !== -1) {
+                    data.splice(index, 1);
+                }
+            }
+            saveDataToLocalStorage(); // Save data when checkboxes change
+        });
+
+        darkSkinnedCheckbox.addEventListener('change', () => {
+            if (darkSkinnedCheckbox.checked) {
+                data.push('dark-skinned');
+            } else {
+                const index = data.indexOf('dark-skinned');
+                if (index !== -1) {
+                    data.splice(index, 1);
+                }
+            }
+            saveDataToLocalStorage(); // Save data when checkboxes change
+        });
+
+        tallCheckbox.addEventListener('change', () => {
+            if (tallCheckbox.checked) {
+                data.push('tall');
+            } else {
+                const index = data.indexOf('tall');
+                if (index !== -1) {
+                    data.splice(index, 1);
+                }
+            }
+            saveDataToLocalStorage(); // Save data when checkboxes change
+        });
+        shortCheckbox.addEventListener('change', () => {
+            if (shortCheckbox.checked) {
+                data.push('short');
+            } else {
+                const index = data.indexOf('short');
+                if (index !== -1) {
+                    data.splice(index, 1);
+                }
+            }
+            saveDataToLocalStorage(); // Save data when checkboxes change
+        });
+        mediumCheckbox.addEventListener('change', () => {
+            if (mediumCheckbox.checked) {
+                data.push('medium');
+            } else {
+                const index = data.indexOf('medium');
+                if (index !== -1) {
+                    data.splice(index, 1);
+                }
+            }
+            saveDataToLocalStorage(); // Save data when checkboxes change
+        });
+
+        // Load data from localStorage when the page loads
+        loadDataFromLocalStorage();
+    </script>
+</body>
+
+</html>
