@@ -168,6 +168,11 @@ h3 {
   width: 500px;
 }
 
+.index {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media (max-width: 1200px) {
   h2 {
     font-family: "Kumbh Sans", sans-serif;
