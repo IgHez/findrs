@@ -270,6 +270,13 @@ h3 {
 }
 
 @media (max-width: 624px) {
+  .question {
+    margin-top: 10px;
+  }
+
+  .btn-next {
+    margin-top: 10px;
+  }
 
   .gender {
     width: 250px;
