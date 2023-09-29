@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Findr</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./form.css" />
+    <link rel="stylesheet" href="./style1.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,500;16..144,600;16..144,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* CSS for the glass background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('glass-background.jpg');
+            /* Replace with your glass background image */
+            background-size: cover;
+            background-blur: 5px;
+            /* Add a blur effect to the background */
+        }
+
+        /* CSS for the centered image (hidden by default) */
+        #centeredImage {
+            position: absolute;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            /* Initially hidden */
+        }
+
+        /* CSS for the back button */
+        #backButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Semi-transparent white background */
+            padding: 10px 20px;
+            cursor: pointer;
+            display: none;
+            /* Initially hidden */
+        }
+    </style>
+    <!-- animation css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="formsub-container">
+            <div class="background-img"></div>
+            <div class="main-div d-flex">
+                <h2 style="color: #0B4F73;font-family: 'Montagu Slab', serif;">FINDR is
+                    Launching soon</h2>
+                <h3 style="color: #0B4F73;">The First 5000 people to register get Free <br> premium for a month ! Join
+                    Now !!!!!!!! </h3>
+                <form id="form">
+                    <input type="text" class="form-input" placeholder="Your Name" id="name" name="name"
+                        required><br><br>
+
+                    <input type="text" id="gender" class="form-input" placeholder="Your Gender" name="gender"
+                        required><br><br>
+
+                    <input type="email" id="email" class="form-input" placeholder="Your Email" name="email"
+                        required><br><br>
+
+                    <button type="submit" class="cta-btn large-btn">I’m In !</button>
+                </form>
+
+            </div>
+            <!-- Back button to remove the image -->
+            <div id="backButton">Back</div>
+
+            <!-- Button to show the image -->
+            <!-- <button>Show Image</button> -->
+
+            <!-- Image to be displayed -->
+            <img id="centeredImage"
+                src="https://s3-alpha-sig.figma.com/img/2110/55a8/a01be8ff6b5928222b727e30d252b129?Expires=1696809600&Signature=VCHlPsGOXwERvlbe5EuYgTGTLaVEg9Xm5BnIfpvFpqm7CL9rXksThoKpMX1z0tzPg5Hs75A27jOrj6~wShF6zPv0azBvfFF-V-4gEk2YKXfB09IAz-lGw6PJboXNCz4-y26K9ed-h0UEz9DNP6WX1W4ThuwviK3akq7KWohvm9D9OCDF73Gh6F0x0hvP~7GuXrdExuSMPastQguT95x1Q1neDxhyuR5N68Tf4zSHQiTMr9OtbnKR38j6jYyF32sGy-kAiEP-eMLYyPfnLbIv3tgPEu4uBUQUGcwXwwFD6ygO0OySR3NsmNAYXc0CozN4GavVpNGv6VCJy2vknY6MCA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                alt="Centered Image">
+
+
+            <script>
+                // JavaScript to toggle the image and back button on button click
+                const showImageButton = document.getElementById('showImage');
+                const centeredImage = document.getElementById('centeredImage');
+                const backButton = document.getElementById('backButton');
+
+                showImageButton.addEventListener('click', () => {
+                    centeredImage.style.display = 'block'; // Show the centered image
+                    backButton.style.display = 'block'; // Show the back button
+                    showImageButton.style.display = 'none'; // Hide the "Show Image" button
+                });
+
+                backButton.addEventListener('click', () => {
+                    centeredImage.style.display = 'none'; // Hide the centered image
+                    backButton.style.display = 'none'; // Hide the back button
+                    showImageButton.style.display = 'block'; // Show the "Show Image" button
+                });
+            </script>
+        </div>
+
+
+    </div>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const gender = document.getElementById("gender").value;
+            const email = document.getElementById("email").value;
+
+
+
+            const data = {
+                name: name,
+                gender: gender,
+                email: email
+            };
+
+            const centeredImage = document.getElementById('centeredImage');
+            const backButton = document.getElementById('backButton');
+
+
+
+
+
+            backButton.addEventListener('click', () => {
+                centeredImage.style.display = 'none'; // Hide the centered image
+                backButton.style.display = 'none'; // Hide the back button
+                console.log('done')
+                document.getElementById("name").value = '';
+                document.getElementById("gender").value = '';
+                document.getElementById("email").value = '';
+            });
+
+            // fetch("http://localhost:3000/sendRequest", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         "apikey": "6508b27e2b66a05e77f8e04c"
+            //     },
+            //     body: JSON.stringify(data)
+            // })
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         console.log(data);
+            //         alert("Request sent successfully!");
+            //     })
+            //     .catch(error => {
+            //         console.error("Error:", error);
+            //         alert("Request failed!");
+            //     });
+
+            fetch("http://localhost:3000/sendRequest", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "6508b27e2b66a05e77f8e04c"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        console.log(`HTTP error! Status: ${response.status}`)
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    if (data.success) {
+                        alert(data);
+                        alert("Request sent successfully!");
+
+                        hideImageButton.style.display = 'block'; // Show the "Hide Image" button after form submission
+                        centeredImage.style.display = 'block'; // Show the centered image
+                        backButton.style.display = 'block'; // Show the back button
+                    } else if (data.success = false) {
+                        console.log('false')
+                    }
+                    else {
+                        alert("Request sent: " + data.message);
+                        centeredImage.style.display = 'block'; // Show the centered image
+                        backButton.style.display = 'block'; // Show the back button
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("email address or gender error. Make sure you specify weather male or female");
+                });
+
+        });
+    </script>
+    <!-- <script src="server.js"></script> -->
+</body>
+
+</html>
