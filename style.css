@@ -287,6 +287,18 @@ h3 {
     left: 0;
   }
 
+  .container {
+    height: 100svh;
+  }
+
+  .small {
+    height: 80vh;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .female {
     position: absolute;
     bottom: 0;
@@ -349,10 +361,6 @@ h3 {
 @media (max-width: 624px) {
   .question {
     margin-top: 10px;
-  }
-
-  .container{
-    height: 100dvh;
   }
 
   .btn-next {
