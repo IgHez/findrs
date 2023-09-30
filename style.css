@@ -351,6 +351,10 @@ h3 {
     margin-top: 10px;
   }
 
+  .container{
+    height: 100dvh;
+  }
+
   .btn-next {
     margin-top: 10px;
   }
