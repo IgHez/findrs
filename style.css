@@ -284,7 +284,7 @@ h3 {
   .container2 {
     background-color: #dcf2f1;
     position: relative;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     min-height: 90vh !important;
