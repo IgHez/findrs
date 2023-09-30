@@ -382,6 +382,15 @@ h3 {
     width: 200px;
   }
 
+  .cta-btn {
+    height: 60px;
+    border-radius: 10px;
+  }
+
+  .btn-next {
+    height: 60px;
+    border-radius: 10px;
+  }
 }
 
 @media (max-width: 405px) {
