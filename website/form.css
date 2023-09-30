@@ -63,6 +63,15 @@
     height: 30px;
 }
 
+.sucess-background {
+    z-index: -1;
+    display: none;
+    position: absolute;
+    width: 100vw;
+    background-color: rgba(221, 221, 221, 0.712);
+    height: 100vh;
+}
+
 @media (max-width: 1000px) {
     .form-input {
         width: 406px;

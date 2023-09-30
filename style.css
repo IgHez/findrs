@@ -11,6 +11,65 @@ body {
   /* overflow-y: hidden; */
 }
 
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 1;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 30px;
+}
+
+@keyframes loader-animation {
+  0% {
+    background-color: #0A7DFE;
+  }
+
+  33% {
+    background-color: #0B4F73;
+  }
+
+  46% {
+    background-color: #0B4F73;
+  }
+
+  66% {
+    background-color: #DCF2F1;
+  }
+
+  100% {
+    background-color: #DCF2F1;
+  }
+}
+
+.loader.animating {
+  animation: loader-animation 4.5s linear infinite;
+}
+
+.main-content {
+  display: none;
+}
+
+.loader.hidden {
+  opacity: 0;
+  z-index: -1;
+}
+
+.main-content.visible {
+  display: flex;
+}
+
 .container {
   background-color: #dcf2f1;
   position: relative;
@@ -91,7 +150,7 @@ h3 {
 }
 
 .cta-btn:hover {
-  background: #000000;
+  background: #0B4F73;
   color: #fff;
 }
 
@@ -170,7 +229,7 @@ h3 {
 
 .index {
   display: flex;
-  justify-content: space-around;
+  gap: 50px;
 }
 
 @media (max-width: 1200px) {
@@ -203,7 +262,7 @@ h3 {
   margin-bottom: 100px;
 }
 
-@media (max-height: 900px) {
+@media (max-height: 400px) {
   .sub-container {
     min-height: 880px;
   }
@@ -222,7 +281,20 @@ h3 {
     flex-direction: column-reverse;
   }
 
+  .male {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .female {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
   .gender {
+
     width: 300px;
     height: 300px;
   }
@@ -286,6 +358,10 @@ h3 {
   .gender {
     width: 250px;
     height: 250px;
+  }
+
+  .index {
+    justify-content: space-evenly;
   }
 }
 

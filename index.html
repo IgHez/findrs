@@ -16,7 +16,11 @@
 </head>
 
 <body>
-  <div class="home-container">
+  <div class="loader animating">
+    <div class="loader-text"><img src="../img/logo.svg" alt=""></div>
+  </div>
+
+  <div class=" home-container main-content">
     <div class="sub-container index">
       <img class="logo-img" src="img/logo.svg" alt="">
       <h2>Welcome to FINDR</h2>
@@ -29,6 +33,16 @@
     </div>
 
     <!-- <img class="dash-svg" src="img/dash.svg" alt=""> -->
+
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          document.querySelector('.loader').classList.remove('animating');
+          document.querySelector('.loader').classList.add('hidden');
+          document.querySelector('.main-content').classList.add('visible');
+        }, 4000);
+      });
+    </script>
   </div>
 </body>
 

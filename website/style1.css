@@ -8,6 +8,72 @@ body {
   font-family: Kumbh Sans;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  transition: background-color 1s ease;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 1;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 30px;
+}
+
+@keyframes loader-animation {
+  0% {
+    background-color: #0A7DFE;
+  }
+
+  33% {
+    background-color: #0B4F73;
+  }
+
+  46% {
+    background-color: #0B4F73;
+  }
+
+  66% {
+    background-color: #DCF2F1;
+  }
+
+  100% {
+    background-color: #DCF2F1;
+  }
+}
+
+.loader.animating {
+  animation: loader-animation 2.5s linear infinite;
+}
+
+.main-content {
+  display: none;
+}
+
+.loader.hidden {
+  opacity: 0;
+  z-index: -1;
+}
+
+.main-content.visible {
+  display: block;
+}
+
+
 #home {
   background: url(https://s3-alpha-sig.figma.com/img/501e/56a6/e7bf453a5301e42c5bf680fd26a4cada?Expires=1696809600&Signature=etpiqpO1mUE55kRDrL8Nd8S3bSYqhOVWA~9drGrUDkFku6AVnaIZiKh4okAVFSPqfoklFilqps5nC8ZMLEIM3dLBzjFNx~NPzonP8WL4gxGEFWHOBq0-maOZcCQsZEgrKHCQKslv~4ScRzrcQ2gJq9MciqRqxJxvtXfd9WECQ0nkTY6GSdtfjCNyTpmANcu2tCvOzWmAQwDJ56-y1rENTI7lR~5NiKjk24-d6~OU6tR~JFm3EQHGqmOctHypBdXSxybdDx-tlaY-fqW1Q6LXAiosDKL4OvDG39zVN7nezgoZS3McE4DyH2A5d3lcYr8Yne1NvXsOnKQ6eZnW~WIQ7g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4),
     lightgray 50% / cover no-repeat;
@@ -56,10 +122,9 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.37),
-    rgba(43, 94, 91, 0.637)
-  ); /* Adjust the gradient colors and opacity as needed */
+  background: linear-gradient(rgba(255, 255, 255, 0.37),
+      rgba(43, 94, 91, 0.637));
+  /* Adjust the gradient colors and opacity as needed */
 }
 
 .container {
@@ -67,13 +132,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure full viewport height */
+  min-height: 100vh;
+  /* Ensure full viewport height */
 }
 
 .sub-container {
-  position: relative; /* Ensures text appears above the gradient overlay */
-  z-index: 1; /* Ensures text is on top of the overlay */
-  color: white; /* Set text color to be visible on the overlay */
+  position: relative;
+  /* Ensures text appears above the gradient overlay */
+  z-index: 1;
+  /* Ensures text is on top of the overlay */
+  color: white;
+  /* Set text color to be visible on the overlay */
   text-align: center;
   padding: 20px;
 }
@@ -95,7 +164,8 @@ h3 {
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  line-height: 46px; /* 182.979% */
+  line-height: 46px;
+  /* 182.979% */
 }
 
 nav {
@@ -238,8 +308,7 @@ li.nav-links {
   height: calc(100vh - 74px);
 }
 
-.about-flex {
-}
+.about-flex {}
 
 .gradient-overlay2 {
   position: absolute;
@@ -248,10 +317,9 @@ li.nav-links {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: linear-gradient(
-    rgba(43, 94, 91, 0.637),
-    rgba(94, 43, 43, 0.637)
-  ); /* Adjust the gradient colors and opacity as needed */
+  background: linear-gradient(rgba(43, 94, 91, 0.637),
+      rgba(94, 43, 43, 0.637));
+  /* Adjust the gradient colors and opacity as needed */
 }
 
 .gradient-overlay3 {
@@ -261,10 +329,9 @@ li.nav-links {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.199),
-    rgba(43, 94, 91, 0.336)
-  ); /* Adjust the gradient colors and opacity as needed */
+  background: linear-gradient(rgba(255, 255, 255, 0.199),
+      rgba(43, 94, 91, 0.336));
+  /* Adjust the gradient colors and opacity as needed */
 }
 
 .center-div {
@@ -387,15 +454,19 @@ li.nav-links {
   .mobile-img {
     width: 400px;
   }
+
   .mobile-img-logo {
     height: 70px;
   }
+
   .cta-btn {
     font-size: 16px;
   }
+
   li.nav-links {
     font-size: 16px;
   }
+
   h2 {
     font-family: "Kumbh Sans", sans-serif;
     /* text-align: center; */
@@ -413,7 +484,8 @@ li.nav-links {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px; /* 182.979% */
+    line-height: 30px;
+    /* 182.979% */
   }
 }
 
@@ -421,15 +493,19 @@ li.nav-links {
   .mobile-img {
     width: 400px;
   }
+
   .mobile-img-logo {
     height: 70px;
   }
+
   .cta-btn {
     font-size: 16px;
   }
+
   li.nav-links {
     font-size: 16px;
   }
+
   h2 {
     font-family: "Kumbh Sans", sans-serif;
     /* text-align: center; */
@@ -447,34 +523,56 @@ li.nav-links {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px; /* 182.979% */
+    line-height: 30px;
+    /* 182.979% */
   }
+
   .featues-menu {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 50px;
   }
+
   .footer-text {
     font-size: 15px;
   }
+
   .sub-menu-header {
     color: #fff;
     font-size: 20px;
   }
+
   .footer-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
+
   .sub-mau-container {
     display: flex;
     /* flex-direction: column; */
   }
+
   .main {
     align-items: center;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-height: 450px) {
+  #home {
+    height: 450px;
+  }
+
+  .mobile-img {
+    height: 200px;
+  }
+
+
+  #about {
+    height: 620px;
   }
 }
 
@@ -484,26 +582,33 @@ li.nav-links {
     padding: 0;
     margin: 0;
   }
+
   .center-div {
     flex-direction: column;
     max-width: 300px;
     padding: 30px;
   }
+
   .left {
     width: 200px;
   }
+
   .mobile-img {
     width: 280px;
   }
+
   .mobile-img-logo {
     height: 50px;
   }
+
   .cta-btn {
     font-size: 14px;
   }
+
   li.nav-links {
     font-size: 14px;
   }
+
   h2 {
     font-family: "Kumbh Sans", sans-serif;
     /* text-align: center; */
@@ -521,7 +626,8 @@ li.nav-links {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px; /* 182.979% */
+    line-height: 30px;
+    /* 182.979% */
   }
 }
 
@@ -533,19 +639,24 @@ li.nav-links {
     justify-content: center;
     text-align: center;
   }
+
   .main {
     align-items: center;
   }
+
   .sub-main {
     align-items: center;
     margin-top: 50px;
   }
+
   .footer-text {
     width: 300px;
   }
+
   .mobile-cta-btn {
     font-size: 20px;
   }
+
   .sub-mau-container {
     display: flex;
     flex-direction: column;
@@ -555,15 +666,18 @@ li.nav-links {
     gap: 10px;
     /* align-self: self-start; */
   }
+
   .sub-menu-header {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .sub-main {
     width: 200px;
   }
+
   .mobile-only {
     display: block;
   }
@@ -587,28 +701,36 @@ li.nav-links {
     padding: 30px 0;
     transition: all 0.3s ease-in;
   }
+
   .nav-btn {
     display: none;
   }
+
   .d-flex {
     flex-direction: column;
     align-items: center;
   }
+
   .nav-links {
     display: none;
   }
+
   .mobile-img {
     width: 280px;
   }
+
   .mobile-img-logo {
     height: 50px;
   }
+
   .cta-btn {
     font-size: 14px;
   }
+
   li.nav-links {
     font-size: 14px;
   }
+
   h2 {
     font-family: "Kumbh Sans", sans-serif;
     /* text-align: center; */
@@ -626,7 +748,8 @@ li.nav-links {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 30px; /* 182.979% */
+    line-height: 30px;
+    /* 182.979% */
   }
 }
 
@@ -634,21 +757,27 @@ li.nav-links {
   .btn-container2 {
     flex-direction: column;
   }
+
   .mobile-cta-btn {
     font-size: 15px !important;
   }
+
   #home {
     height: 100vh;
   }
+
   .mobile-img {
     height: 270px;
   }
+
   #about {
     height: 100vh;
   }
+
   h2 {
     font-size: 19px;
   }
+
   h3 {
     font-size: 17px;
   }
