@@ -281,27 +281,15 @@ h3 {
     flex-direction: column-reverse;
   }
 
-  .container {
-    height: 100dvh;
-  }
-
-  .container2 {
-    background-color: #dcf2f1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh !important;
-    overflow: hidden;
-  }
-
   .male {
     position: absolute;
     bottom: 0;
     left: 0;
   }
 
-
+  .container {
+    height: 100svh;
+  }
 
   .small {
     height: 80vh;
