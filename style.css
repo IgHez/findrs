@@ -281,6 +281,16 @@ h3 {
     flex-direction: column-reverse;
   }
 
+  .container2 {
+    background-color: #dcf2f1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh !important;
+    overflow: hidden;
+  }
+
   .male {
     position: absolute;
     bottom: 0;
@@ -292,7 +302,7 @@ h3 {
   }
 
   .small {
-    height: 70vh;
+    height: 80vh;
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
