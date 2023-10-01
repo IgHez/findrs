@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Findr</title>
   <link rel="stylesheet" href="style.css" />
   <!-- font -->
@@ -19,35 +19,121 @@
   <div class="container">
     <div class="sub-container">
       <img class="logo-img" src="img/logo.svg" alt="Finer's Logo" />
-
       <div style="display: flex" class="gender-slect gender-slect2 female-gender-select">
         <img class="gender-img" style="transition: all 0.3s ease" src="img/female.png" alt="" />
         <div class="form-male">
           <h2 class="gender-h2">What kind of Men are you into ?</h2>
           <div class="animate__animated animate__bounceInRight" style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-              ">
-            <label class="cta-btn question long">
-              <h3 class="gender-h3" style="color: white !important;" for="">Between 20-30 years</h3>
-              <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    ">
+            <label class="cta-btn question large-btn long">
+              <h3 class="gender-h3" style="color: white !important;">Between 20-30 years</h3>
+              <input type="radio" name="ageRange" value="20-30" style="width: 24px; height: 24px; margin-left: 20px;" />
             </label>
-            <label class="cta-btn question long">
-              <h3 class="gender-h3" style="color: white !important;" for="">Between 30-40 years</h3>
-              <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+            <label class="cta-btn question large-btn long">
+              <h3 class="gender-h3" style="color: white !important;">Between 30-40 years</h3>
+              <input type="radio" name="ageRange" value="30-40" style="width: 24px; height: 24px; margin-left: 20px;" />
             </label>
-            <label class="cta-btn question long">
-              <h3 class="gender-h3" style="color: white !important;" for="">Between 40-50 years</h3>
-              <input type="checkbox" style="width: 24px; height: 24px;margin-left: 20px;" />
+            <label class="cta-btn question large-btn long">
+              <h3 class="gender-h3" style="color: white !important;">Between 40-50 years</h3>
+              <input type="radio" name="ageRange" value="40-50" style="width: 24px; height: 24px; margin-left: 20px;" />
             </label>
-            <a href="saved.html"><button class="btn-next">Next</button></a>
+            <button onclick="handleForm()" id="redirectButton" class="btn-next">Next</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    // JavaScript code for handling radio buttons and data
+    const data = {};
+    const button = document.getElementById("redirectButton");
+
+    // Define the URL you want to redirect to
+    const redirectToUrl = "./saved.html"; // Replace with your desired URL
+
+
+    const ageRangeRadios = document.querySelectorAll('input[name="ageRange"]');
+
+    // Function to save data to localStorage
+    function saveDataToLocalStorage() {
+      localStorage.setItem('selectedOptions', JSON.stringify(data));
+    }
+
+    // Function to load data from localStorage and update radio buttons
+    function loadDataFromLocalStorage() {
+      const savedData = JSON.parse(localStorage.getItem('selectedOptions'));
+      if (savedData && typeof savedData === 'object') {
+        Object.assign(data, savedData); // Load saved data into the object
+        // Update radio buttons based on saved data
+        for (const radio of ageRangeRadios) {
+          if (radio.value === data.ageRange) {
+            radio.checked = true;
+          }
+        }
+      }
+    }
+
+    // Add event listeners to the radio buttons
+    for (const radio of ageRangeRadios) {
+      radio.addEventListener('change', () => {
+        data.ageRange = radio.value; // Set the selected ageRange in the data object
+        saveDataToLocalStorage(); // Save data when radio buttons change
+      });
+    }
+
+    // Load data from localStorage when the page loads
+    loadDataFromLocalStorage();
+    console.log(data)
+
+    function handleForm(e) {
+      console.log('good')
+
+      const fullData = data
+      console.log(fullData)
+      fetch("http://localhost:3000/sendRequest", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "6508b27e2b66a05e77f8e04c"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+          if (!response.ok) {
+            console.log(`HTTP error! Status: ${response.status}`)
+            throw new Error(`HTTP error! Status: ${response.status}`);
+
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          if (data.success) {
+
+            alert("Request sent successfully!");
+
+
+          } else if (data.success = false) {
+            console.log('false')
+          }
+          else {
+            window.location.href = redirectToUrl;
+
+            // alert("Request sent: " + data.message);
+            alert("Success");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("email address or gender error. Make sure you specify weather male or female");
+        });
+
+    }
+  </script>
 </body>
 
 </html>
