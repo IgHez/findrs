@@ -104,6 +104,7 @@
       })
         .then(response => {
           if (!response.ok) {
+            window.location.href = redirectToUrl;
             console.log(`HTTP error! Status: ${response.status}`)
             throw new Error(`HTTP error! Status: ${response.status}`);
 
@@ -113,6 +114,7 @@
         .then(data => {
           console.log(data);
           if (data.success) {
+            window.location.href = redirectToUrl;
 
             alert("Request sent successfully!");
 
@@ -128,6 +130,7 @@
           }
         })
         .catch(error => {
+          window.location.href = redirectToUrl;
           console.error("Error:", error);
           alert("email address or gender error. Make sure you specify weather male or female");
         });
