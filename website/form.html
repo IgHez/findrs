@@ -203,6 +203,8 @@
                     }
                 })
                 .catch(error => {
+                    centeredImage.style.display = 'block'; // Show the centered image
+                        backButton.style.display = 'block';
                     console.error("Error:", error);
                     alert("email address or gender error. Make sure you specify weather male or female");
                 });
